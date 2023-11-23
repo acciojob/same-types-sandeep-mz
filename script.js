@@ -1,19 +1,11 @@
 function isSameType(value1, value2) {
-  const isValue1NaN = isNaN(value1);
-  const isValue2NaN = isNaN(value2);
-
   // Check if both values are NaN or non-numeric strings
-  if ((isValue1NaN && isValue2NaN) || (isValue1NaN !== isValue2NaN)) {
+  if ((isNaN(value1) && isNaN(value2)) || (typeof value1 !== 'number' && typeof value2 !== 'number')) {
     return true;
   }
 
-  // Check if both values are of the same non-numeric type
-  if ((typeof value1 !== 'number' && typeof value2 !== 'number') &&
-      (typeof value1 === typeof value2)) {
-    return true;
-  }
-
-  return false; // Return false if none of the conditions are met
+  // Check if the types of both values are the same 
+  return typeof value1 === typeof value2;
 }
 
 // do not change the code below.
